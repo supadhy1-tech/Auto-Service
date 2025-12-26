@@ -1,0 +1,299 @@
+/* =========================================================
+   GLOBAL THEME
+========================================================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* This pushes footer to the bottom */
+}
+footer {
+  padding: 32px;
+  text-align: center;
+  background: var(--brand-dark);
+  color: #e8fff4;
+  font-size: 1rem;
+  margin-top: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
+  letter-spacing: 0.5px;
+}
+
+:root {
+  --brand: #1f7f63;           /* Deep nature green */
+  --brand-light: #46c79f;     /* Soft mint green */
+  --brand-dark: #155a47;      /* Forest green */
+  --bg: #f5faf7;              /* Fresh soft greenish background */
+  --text: #0f2620;            /* Deep natural charcoal */
+  --radius: 18px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow);
+}
+
+nav a {
+  margin-left: 28px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--brand-dark);
+  transition: all .2s ease;
+}
+
+nav a:hover {
+  color: var(--brand);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand));
+  color: #fff;
+  padding: 90px 32px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating leaves for greenery vibe */
+.hero::before,
+.hero::after {
+  content: "🍃";
+  font-size: 5rem;
+  position: absolute;
+  opacity: 0.15;
+  animation: float 10s infinite linear;
+}
+
+.hero::before {
+  top: -20px;
+  left: -20px;
+}
+
+.hero::after {
+  bottom: -20px;
+  right: -20px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+.card {
+  padding: 24px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+button {
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .2s ease;
+  font-size: 1rem;
+}
+
+button.primary {
+  background: var(--brand);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+button.primary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   FORMS
+========================================================= */
+form {
+  max-width: 550px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+input, select, textarea {
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid #c8ded5;
+  background: #fff;
+  transition: all .2s ease;
+  font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(31, 127, 99, 0.2);
+  outline: none;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+th, td {
+  padding: 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+th {
+  background: #f1f9f5;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+tr:hover td {
+  background: #f8fffc;
+}
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+.about-section {
+  margin: 80px auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.2rem;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  max-width: 780px;
+  margin: auto;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.about-images {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.about-images img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease;
+}
+
+.about-images img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}

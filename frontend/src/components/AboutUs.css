@@ -1,0 +1,91 @@
+
+.two-card-slider {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* more space around cards */
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+}
+.about-content h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  color: #222; /* clean, professional dark tone */
+  border-bottom: 3px solid #0057b8; /* automotive blue accent */
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.about-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* Two cards side-by-side */
+.card-pair {
+  display: flex;
+  gap: 30px; /* more space between cards */
+}
+
+/* Bigger card size */
+.slider-card {
+  width: 500px;     /* increased width */
+  height: 350px;    /* increased height */
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.20);
+  background: #ffffff;
+  transition: transform 0.25s ease;
+}
+
+.slider-card:hover {
+  transform: translateY(-6px);
+}
+
+.slider-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.slider-btn {
+  background: #ffffffd0;
+  border: none;
+  font-size: 38px;     /* slightly bigger arrows */
+  padding: 14px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.slider-btn:hover {
+  background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .slider-card {
+    width: 420px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-pair {
+    flex-direction: column;
+  }
+  
+  .slider-card {
+    width: 90%;
+    height: 260px;
+    margin: 0 auto;
+  }
+}
