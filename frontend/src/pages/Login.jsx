@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({ setIsAdmin }) {
   const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ export default function Login() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Login failed');
       localStorage.setItem('token', data.token);
+      setIsAdmin(true); 
       navigate('/admin');
      
     } catch (err) {
