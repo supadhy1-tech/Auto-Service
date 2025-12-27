@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ isAdmin, setIsAdmin }) {
   const isLicenseSet = !!localStorage.getItem("license");
-  const isAdmin = !!localStorage.getItem("token");  // FIXED
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");  // FIXED
-    window.location.href = "/";
+    localStorage.removeItem("token");
+    setIsAdmin(false);  // update React state
+    navigate("/");       // redirect without reload
   };
 
   return (
@@ -14,9 +15,7 @@ export default function Navbar() {
       <Link to="/">Home</Link>
       <Link to="/book">Book</Link>
 
-      {!isAdmin && isLicenseSet && (
-        <Link to="/login">Login</Link>
-      )}
+      {!isAdmin && isLicenseSet && <Link to="/login">Login</Link>}
 
       {isAdmin && (
         <>
