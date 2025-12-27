@@ -24,7 +24,7 @@ export default function Login() {
       if (!res.ok) throw new Error(data.error || 'Login failed');
       localStorage.setItem('token', data.token);
       navigate('/admin');
-      window.location.reload();
+     
     } catch (err) {
       setError(err.message);
     }
