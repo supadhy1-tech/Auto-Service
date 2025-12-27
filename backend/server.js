@@ -1,15 +1,16 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
-import rateLimit from 'express-rate-limit';
 import bookingsRouter from './routes/bookings.js';
 import authRouter from './routes/auth.js';
 
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(helmet());
